@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'blog',
+    'flights',
     'crispy_forms',
     'users.apps.UsersConfig',
     'django.contrib.admin',

@@ -1,0 +1,31 @@
+{% extends "airline/layout.html" %}
+{% block body %}
+    <h1> Flight - {{ flight.id }}</h1>
+    <ul>
+        <li> sourse : {{flight.source}}</li>
+        <li> destion : {{ flight.destion}}</li>
+        <li> duration : {{flight.duration}} </li>
+        <li> price : {{flight.price}} </li>
+    </ul>
+
+    <h1> Passenger list </h1>
+    <ul>
+        {% for passenger in passengers %}
+            <li> {{ passenger}}</li>
+        {% endfor %}
+    </ul>
+
+    <h1> Non passenger list</h1>
+    <form action="{% url 'book' flight.id %}" method="post">
+        {% csrf_token %}
+        <select name="passenger" id="">
+        {% for passenger in non_passengers %}
+            <option value="{{ passenger.id}}"> {{passenger.first_name}} - {{passenger.last_name}}</option>
+        {%endfor %}
+
+        </select>
+        <input type="submit" value="book" >
+    </form>
+
+<h3><a href="{% url 'airline-home' %}"> Home </a></h3>
+{% endblock %}
