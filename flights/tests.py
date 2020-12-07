@@ -51,4 +51,4 @@ class FlightTestCases(TestCase):
     def test_no_of_flight_home(self):
         cl = Client()
         response = cl.get("/flights/home")
-        self.assertEqual(response.context["flights"].count(), 2)
+        self.assertEqual(response.context["flights"].count(), 3)
